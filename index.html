@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexaReach Marketing | Growth Marketing Agency in Pakistan</title>
+  <meta name="description" content="NexaReach Marketing helps Pakistani brands grow with performance marketing, social media management, branding, content, and lead generation." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #111831;
+      --panel: rgba(255,255,255,0.08);
+      --text: #f5f7ff;
+      --muted: #b6c0e0;
+      --primary: #4f8cff;
+      --secondary: #19c2a0;
+      --accent: #ffd166;
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+      --radius: 20px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(79, 140, 255, 0.28), transparent 32%),
+        radial-gradient(circle at top right, rgba(25, 194, 160, 0.20), transparent 24%),
+        linear-gradient(180deg, #0a1020 0%, #0d1428 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .badge,
+    .stat,
+    .card,
+    .quote,
+    .contact-box {
+      backdrop-filter: blur(12px);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(10, 16, 32, 0.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      font-size: 1.1rem;
+      box-shadow: 0 12px 24px rgba(79, 140, 255, 0.35);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.95rem 1.4rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #6aa5ff);
+      color: white;
+      box-shadow: 0 14px 28px rgba(79, 140, 255, 0.32);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 5.25rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      border-radius: 999px;
+      padding: 0.5rem 0.9rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 62ch;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .stat {
+      border-radius: 18px;
+      padding: 1rem 1.15rem;
+      min-width: 145px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-panel {
+      border-radius: 28px;
+      padding: 1.4rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .panel-card {
+      background: rgba(9, 14, 29, 0.78);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 1.35rem;
+    }
+
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .metric {
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      margin-bottom: 0.9rem;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.65rem;
+      margin-bottom: 0.2rem;
+    }
+
+    section {
+      padding: 1.25rem 0 4rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 62ch;
+      margin-bottom: 0;
+    }
+
+    .services-grid,
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .card,
+    .quote,
+    .contact-box {
+      border-radius: var(--radius);
+      padding: 1.35rem;
+    }
+
+    .card .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, rgba(79, 140, 255, 0.24), rgba(25, 194, 160, 0.24));
+    }
+
+    .card p,
+    .quote p,
+    .about-copy p,
+    .contact-box p,
+    .contact-list {
+      color: var(--muted);
+    }
+
+    .about-grid,
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .about-copy,
+    .about-points {
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .about-points ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .about-points li {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .about-points li:last-child { border-bottom: 0; }
+
+    .quote strong { display: block; margin-top: 1rem; }
+    .quote small { color: var(--accent); }
+
+    .contact-box h3 { margin-bottom: 0.4rem; }
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+
+    .contact-list li {
+      padding: 0.5rem 0;
+    }
+
+    .footer {
+      padding: 1rem 0 2.2rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .services-grid,
+      .testimonials-grid,
+      .about-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+
+      .stat {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="logo">
+        <span class="logo-mark">NR</span>
+        <span>NexaReach Marketing</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Results</a>
+        <a href="#contact" class="btn btn-secondary">Book a Free Strategy Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">🇵🇰 Helping ambitious brands grow across Pakistan</div>
+          <h1>Marketing that turns clicks into real business growth.</h1>
+          <p>
+            NexaReach Marketing is a Pakistan-focused growth agency helping startups, retailers,
+            clinics, real estate businesses, and service brands generate stronger visibility, better leads,
+            and more consistent conversions through creative strategy and performance execution.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get Your Free Audit</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+          </div>
+          <div class="trust-row">
+            <div class="stat">
+              <strong>120+</strong>
+              <span>Campaigns launched</span>
+            </div>
+            <div class="stat">
+              <strong>35%</strong>
+              <span>Average lead growth</span>
+            </div>
+            <div class="stat">
+              <strong>5 Cities</strong>
+              <span>Lahore, Karachi, Islamabad and beyond</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="panel-card">
+            <div class="panel-top">
+              <span>Growth Snapshot</span>
+              <span>Last 90 Days</span>
+            </div>
+            <div class="metric">
+              <strong>+218%</strong>
+              <span>Reach growth from optimized social and ad campaigns</span>
+            </div>
+            <div class="metric">
+              <strong>Rs. 4.6M</strong>
+              <span>Attributed revenue generated across paid channels</span>
+            </div>
+            <div class="metric">
+              <strong>3.8x ROAS</strong>
+              <span>Average return from Meta and Google campaign management</span>
+            </div>
+            <p style="margin: 0.8rem 0 0; color: var(--muted);">
+              Built for businesses that want strategic marketing with clean reporting, local market understanding,
+              and fast-moving execution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Services built for measurable growth</h2>
+            <p>
+              We combine brand storytelling with performance-driven execution so your business can stand out in a competitive Pakistani market.
+            </p>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="icon">📈</div>
+            <h3>Performance Marketing</h3>
+            <p>Meta, Google, and YouTube campaigns designed to drive leads, sales, and lower acquisition costs.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📱</div>
+            <h3>Social Media Management</h3>
+            <p>Consistent content calendars, short-form creative, and audience engagement tailored for local customer behavior.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">✍️</div>
+            <h3>Branding & Content</h3>
+            <p>Sharper messaging, campaign copy, visual direction, and landing page content that improves trust and conversion.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🔎</div>
+            <h3>SEO & Local Discovery</h3>
+            <p>On-page SEO, content optimization, and local search improvements to help customers find you faster.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🎯</div>
+            <h3>Lead Generation Funnels</h3>
+            <p>Conversion-focused funnels, ad-to-landing-page journeys, and CRM-ready lead capture strategies.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📊</div>
+            <h3>Reporting & Strategy</h3>
+            <p>Transparent dashboards, campaign reviews, and practical recommendations that keep decision-making simple.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Why brands choose NexaReach</h2>
+            <p>We blend local insight, creative thinking, and performance discipline to help businesses grow with confidence.</p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <h3>Pakistan-market expertise without the agency clutter</h3>
+            <p>
+              From fast-growing ecommerce stores to service-based businesses, our team builds campaigns around the realities of the local market:
+              price-sensitive audiences, mobile-first browsing, trust-led messaging, and region-specific platform behavior.
+            </p>
+            <p>
+              Our approach is simple: understand your goals, identify the highest-impact opportunities, and launch focused campaigns that can be measured and improved quickly.
+            </p>
+          </div>
+          <div class="about-points">
+            <ul>
+              <li><strong>Strategy first:</strong> Clear offers, audience targeting, and channel prioritization before spend.</li>
+              <li><strong>Creative that converts:</strong> Messaging and visuals designed to improve attention and action.</li>
+              <li><strong>Transparent execution:</strong> Clean reporting, honest recommendations, and no inflated metrics.</li>
+              <li><strong>Built for growth:</strong> Flexible support for startups, SMEs, and established businesses alike.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Trusted by growth-focused teams</h2>
+            <p>Here are the kinds of outcomes and trust signals that matter most to business owners and marketing leads.</p>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="quote">
+            <p>“Our lead quality improved noticeably within the first month. The team understood our audience in Lahore and fixed the gaps in both our ads and landing page messaging.”</p>
+            <strong>Sara A.</strong>
+            <small>Director, Aesthetic Clinic</small>
+          </article>
+
+          <article class="quote">
+            <p>“NexaReach gave us structure, fast execution, and reports we could actually understand. We scaled from inconsistent campaigns to a repeatable monthly pipeline.”</p>
+            <strong>Hamza R.</strong>
+            <small>Founder, Real Estate Advisory</small>
+          </article>
+
+          <article class="quote">
+            <p>“They felt like an extension of our internal team. Our ecommerce campaigns became more efficient, and our creatives finally started reflecting what customers respond to in Pakistan.”</p>
+            <strong>Mahnoor K.</strong>
+            <small>Brand Manager, D2C Retail</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container cta-grid">
+        <div class="contact-box">
+          <h2>Ready to grow your brand?</h2>
+          <p>
+            Let’s review your current marketing, identify quick wins, and build a practical roadmap for stronger reach, leads, and revenue.
+          </p>
+          <div class="hero-actions" style="margin-bottom:0; margin-top: 1rem;">
+            <a class="btn btn-primary" href="mailto:hello@nexareach.pk">Email Us</a>
+            <a class="btn btn-secondary" href="tel:+923001234567">Call +92 300 1234567</a>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <h3>Contact & Availability</h3>
+          <p>Available for brands across Pakistan looking for campaign support, content strategy, and growth consulting.</p>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> hello@nexareach.pk</li>
+            <li><strong>Phone:</strong> +92 300 1234567</li>
+            <li><strong>Locations:</strong> Lahore, Karachi, Islamabad</li>
+            <li><strong>CTA:</strong> Book a free discovery call within 24 hours</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 NexaReach Marketing. Growth marketing for ambitious businesses in Pakistan.
+    </div>
+  </footer>
+</body>
+</html>
